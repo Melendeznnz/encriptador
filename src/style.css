@@ -1,0 +1,37 @@
+header {
+    background: black;
+}
+
+main {
+    display: block;
+}
+
+.mensaje {
+    display: inline-block;
+    position: absolute;
+    background: black;
+    width: 50%;
+    height: calc(90% - 25px);
+    margin: 0 0 0 15%;
+
+}
+
+.mensaje textarea {
+    background: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0A3871;
+    font-size: 20px;
+    width: 90%;
+    margin: 10% 5% 0 5%;
+}
+
+.codificador {
+    display: inline-block;
+    position: absolute;
+    background: red;
+    top: 25px;
+    width: 30%;
+    height: 90%;
+    margin: 0 0 0 68%;
+    border-radius: 32px;
+}
