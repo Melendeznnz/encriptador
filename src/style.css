@@ -9,7 +9,7 @@ main {
 .mensaje {
     display: inline-block;
     position: absolute;
-    background: black;
+    background: white;
     width: 50%;
     height: calc(90% - 25px);
     margin: 0 0 0 15%;
@@ -20,6 +20,8 @@ main {
     background: transparent;
     font-family: Arial, Helvetica, sans-serif;
     color: #0A3871;
+    border-style: none;
+    content: Ingrese el texto aqui;
     font-size: 20px;
     width: 90%;
     margin: 10% 5% 0 5%;
