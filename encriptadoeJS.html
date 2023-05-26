@@ -1,117 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>encriptadoeJS v0.0.1</title>
+    <title>Document</title>
 </head>
+
 <body>
 
     <h1>encriptadoeJS v0.0.1</h1>
-    
+
     <input />
     <button id="boton1">Encriptar</button>
     <button id="boton2">Desencriptar</button>
 
 </body>
 <script>
-//pendiente reducir líneas de código creando nuevas funciones y eliminar los 'console.log'
-	var userInput = document.querySelector("input");
-        var estadoPosterior = ""
-        var letraAReemplazar = ["a", "e", "i", "o", "u"];
-        var Reemplazo = ["ai", "enter", "imes", "ober", "ufat"];
+    var userInput = document.querySelector("input");
+    var codiOriginal = ["a", "e", "i", "o", "u"];
+    var codiReemplazo = ["AI", "EntEr", "ImEs", "ObEr", "UfAt"];
+
+    function codificacionAlura() {
+        var estadoAnterior = userInput.value;
+        var estadoPosterior = "";
         var matrisNum = 0;
 
-	function codificacionAlura () {
-
-        if (matrisNum > 4) {matrisNum = 0}
-
-        estadoPosterior = userInput.value.replace(letraAReemplazar[matrisNum], Reemplazo[matrisNum]);
-        console.log(estadoPosterior)
-        console.log(userInput.value)
-        var contador = 1
-        console.log(contador)
-        console.log(". . .")
-
-        while (estadoPosterior != userInput.value) {
-
+        while (userInput.value != estadoPosterior) {
             userInput.value = estadoPosterior;
-        console.log(estadoPosterior)
-        console.log(userInput.value)
-        contador ++
-        console.log(contador)
-        console.log(". . .")
-            estadoPosterior = userInput.value.replace(letraAReemplazar[matrisNum], Reemplazo[matrisNum]);
-        console.log(estadoPosterior)
-        console.log(userInput.value)
-        contador ++
-        console.log(contador)
-        console.log(". . .")
-
-            while (estadoPosterior == userInput.value) {
-                matrisNum ++;
-                estadoPosterior = userInput.value.replace(letraAReemplazar[matrisNum], Reemplazo[matrisNum]);
-                console.log(estadoPosterior)
-                console.log(userInput.value)
-                contador ++
-                console.log(contador)
-                console.log("matrisNum = " + matrisNum)
-                console.log(". . .")
-
-                if (matrisNum > 4) {break}
+            while (matrisNum < 5) {
+                estadoPosterior = estadoAnterior.replace(codiOriginal[matrisNum], codiReemplazo[matrisNum]);
+                estadoAnterior = estadoPosterior;
+                matrisNum++;
             }
+            matrisNum = 0
         }
-    }
-
-	function deCodificacionAlura () {
-
-        if (matrisNum > 4) {matrisNum = 0}
-
-        estadoPosterior = userInput.value.replace((Reemplazo[matrisNum]), letraAReemplazar[matrisNum]);
-        console.log(estadoPosterior)
-        console.log(userInput.value)
-        var contador = 1
-        console.log(contador)
-        console.log(". . .")
-        
-        while (estadoPosterior != userInput.value) {
-
-            userInput.value = estadoPosterior;
-        console.log(estadoPosterior)
-        console.log(userInput.value)
-        contador ++
-        console.log(contador)
-        console.log(". . .")
-            estadoPosterior = userInput.value.replace((Reemplazo[matrisNum]), letraAReemplazar[matrisNum]);
-        console.log(estadoPosterior)
-        console.log(userInput.value)
-        contador ++
-        console.log(contador)
-        console.log(". . .")
-
-            while (estadoPosterior == userInput.value) {
-                matrisNum ++;
-                estadoPosterior = userInput.value.replace((Reemplazo[matrisNum]), letraAReemplazar[matrisNum]);
-                console.log(estadoPosterior)
-                console.log(userInput.value)
-                contador ++
-                console.log(contador)
-                console.log("matrisNum = " + matrisNum)
-                console.log(". . .")
-
-                if (matrisNum > 4) {break}
-            }
-        }
+        userInput.value = userInput.value.toLowerCase();
     }
 
     var button = document.querySelector('#boton1');
     button.onclick = codificacionAlura;
 
-    var button2 = document.querySelector('#boton2');
-    button2.onclick = deCodificacionAlura;
 
-    
 
 </script>
+
 </html>
