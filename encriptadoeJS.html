@@ -19,8 +19,10 @@
 </body>
 <script>
     var userInput = document.querySelector("input");
-    var codiOriginal = ["a", "e", "i", "o", "u"];
-    var codiReemplazo = ["AI", "EntEr", "ImEs", "ObEr", "UfAt"];
+    var palabra = ["a", "e", "i", "o", "u"];
+    var significado = ["ai", "enter", "imes", "ober", "ufat"];
+    var codiOriginal = [];
+    var codiReemplazo = [];
 
     function codificacionAlura() {
         var estadoAnterior = userInput.value;
@@ -34,13 +36,28 @@
                 estadoAnterior = estadoPosterior;
                 matrisNum++;
             }
-            matrisNum = 0
+            matrisNum = 0;
         }
         userInput.value = userInput.value.toLowerCase();
     }
 
+    function codificacion() {
+        codiOriginal = palabra;
+        codiReemplazo = significado.map(x => x.toUpperCase);
+        codificacionAlura;
+    }
+
+    function deCodificacion() {
+        codiOriginal = significado;
+        codiReemplazo = palabra.map(x => x.toUpperCase);
+        codificacionAlura;
+    }
+
     var button = document.querySelector('#boton1');
-    button.onclick = codificacionAlura;
+    button.onclick = codificacion;
+
+    var button = document.querySelector('#boton2');
+    button.onclick = deCodificacion;
 
 
 

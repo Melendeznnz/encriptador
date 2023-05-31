@@ -13,8 +13,59 @@
     <main>
         <section class="mensaje">
             <textarea id="mensaje" rows="15" class="input-padron" placeholder="Ingrese el texto aqui" required></textarea>
+            <button id="encriptar"></button>
+            <button id="desencriptar"></button>
         </section>
-        <section class="codificador"></section>
+        <section class="mensaje-codificado">
+            <textarea id="salida"></textarea>
+        </section>
     </main>
 </body>
+<script>
+    var userInput = document.querySelector("#mensaje");
+    var mensajeOutput = document.querySelector("#salida");
+    var palabraLowerCase = ["a", "e", "i", "o", "u", " "];
+    var significadoLowerCase = ["ai", "enter", "imes", "ober", "ufat", " "];
+    var palabraUpperCase = ["A", "E", "I", "O", "U", " "];
+    var significadoUpperCase = ["AI", "ENTER", "IMES", "OBER", "UFAT", " "];
+    var palabraActual = [];
+    var significadoActual = [];
+
+    function codificacionAlura(reemplazar, reemplazo) {
+        mensajeOutput.value = userInput.value;
+        var estadoAnterior = mensajeOutput.value;
+        var estadoPosterior = "";
+        var matrisNum = 0;
+
+        while (mensajeOutput.value != estadoPosterior) {
+            mensajeOutput.value = estadoPosterior;
+            while (matrisNum < 5) {
+                estadoPosterior = estadoAnterior.replace(palabraActual[matrisNum], significadoActual[matrisNum]);
+                estadoAnterior = estadoPosterior;
+                matrisNum++;
+            }
+            matrisNum = 0;
+        }
+        userInput.value = "";
+        mensajeOutput.value = mensajeOutput.value.toLowerCase();
+    }
+
+    function codificacion() {
+        palabraActual = palabraLowerCase;
+        significadoActual = significadoUpperCase;
+        codificacionAlura();
+    }
+
+    function deCodificacion() {
+        palabraActual = significadoLowerCase;
+        significadoActual = palabraUpperCase;
+        codificacionAlura();
+    } //por alguna razon cuando aplico esta función, la codificación deja de funcionar, revizar el porque
+
+    var button = document.querySelector('#encriptar');
+    button.onclick = codificacion;
+
+    var button = document.querySelector('#desencriptar');
+    button.onclick = deCodificacion;
+</script>
 </html>

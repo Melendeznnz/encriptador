@@ -1,15 +1,31 @@
+body {
+    background: #F3F5FC;
+}
+
 header {
-    background: black;
+    height: 100px;
+}
+
+header img {
+    margin: 25px 0 0 0;
 }
 
 main {
     display: block;
 }
 
+button {
+    width: 45%;
+    height: 67px;
+}
+
+#desencriptar {
+    margin: 0 2.5%;
+}
+
 .mensaje {
     display: inline-block;
     position: absolute;
-    background: white;
     width: 50%;
     height: calc(90% - 25px);
     margin: 0 0 0 15%;
@@ -19,21 +35,33 @@ main {
 .mensaje textarea {
     background: transparent;
     font-family: Arial, Helvetica, sans-serif;
-    color: #0A3871;
     border-style: none;
+    color: #0A3871;
+    font-family: Arial, Helvetica, sans-serif;
     content: Ingrese el texto aqui;
-    font-size: 20px;
+    font-size: 32px;
     width: 90%;
     margin: 10% 5% 0 5%;
 }
 
-.codificador {
+.mensaje-codificado {
     display: inline-block;
     position: absolute;
-    background: red;
+    background: white;
     top: 25px;
-    width: 30%;
+    width: 27%;
     height: 90%;
-    margin: 0 0 0 68%;
+    margin: 0 0 0 71%;
     border-radius: 32px;
+}
+
+.mensaje-codificado #salida {
+    background: none;
+    border: none;
+    width: 95%;
+    margin: 2.5%;
+    height: 75%;
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
 }
